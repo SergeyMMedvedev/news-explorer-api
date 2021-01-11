@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const isUserArticleOwner = require('../middlewares/isUserArticleOwner');
+const isUserArticleOwner = require('../middlewares/is-user-article-owner');
 
 const {
   getArticles,
