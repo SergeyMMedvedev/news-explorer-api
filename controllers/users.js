@@ -9,6 +9,7 @@ const {
   requireEmaillPasswordName,
   userAlreadyExist,
   userNotFound,
+  userCreated,
 } = require('../utils/messeges');
 
 module.exports.login = (req, res, next) => {
@@ -46,8 +47,8 @@ module.exports.createUser = (req, res, next) => {
         password: hash,
         name,
       })
-        .then((newUser) => {
-          res.status(201).send({ message: `Пользователь email: ${newUser.email}, name:  ${newUser.name} успешно создан` });
+        .then(() => {
+          res.status(201).send({ message: userCreated });
         })
         .catch(next);
     });

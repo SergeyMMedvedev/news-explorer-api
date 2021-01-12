@@ -63,7 +63,12 @@ const validateUserBody = celebrate({
       .messages({
         'any.required': 'поле email должно быть заполнено',
       }),
-    password: Joi.string().required()
+    password: Joi.string().required().min(8).custom((value, helpers) => {
+      if (!/\s/.test(value)) {
+        return value;
+      }
+      return helpers.message('пароль не должен содержать пробелы');
+    })
       .messages({
         'any.required': 'поле password должно быть заполнено',
       }),
@@ -84,7 +89,12 @@ const validateAuthentication = celebrate({
       .messages({
         'any.required': 'поле email должно быть заполнено',
       }),
-    password: Joi.string().required()
+    password: Joi.string().required().min(8).custom((value, helpers) => {
+      if (!/\s/.test(value)) {
+        return value;
+      }
+      return helpers.message('пароль не должен содержать пробелы');
+    })
       .messages({
         'any.required': 'поле password должно быть заполнено',
       }),

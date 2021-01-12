@@ -11,6 +11,8 @@ const userWasDeleted = 'Пользователь был удален, необх
 const serverErrorMessage = 'Ошибка на сервере';
 const incorrectEmailOrPassword = 'Неправильные почта или пароль';
 const notFound = 'Запрашиваемый ресурс не найден';
+const articleCreated = 'Статья успешно создана!';
+const userCreated = 'Пользователь успешно создан!';
 
 module.exports = {
   incorrectId,
@@ -26,4 +28,6 @@ module.exports = {
   serverErrorMessage,
   incorrectEmailOrPassword,
   notFound,
+  articleCreated,
+  userCreated,
 };

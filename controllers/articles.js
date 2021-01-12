@@ -1,7 +1,7 @@
 const Article = require('../models/article');
 const BadRequestError = require('../errors/bad-request-error');
 const NotFoundError = require('../errors/not-found-error');
-const { requireAllFields, articleNotFound } = require('../utils/messeges');
+const { requireAllFields, articleNotFound, articleCreated } = require('../utils/messeges');
 
 module.exports.getArticles = (req, res, next) => {
   Article.find({})
@@ -34,8 +34,8 @@ module.exports.postArticles = (req, res, next) => {
     link,
     image,
     owner,
-  }).then((article) => {
-    res.status(201).send({ message: `статья ${article.title} успешно создана` });
+  }).then(() => {
+    res.status(201).send({ message: articleCreated });
   })
     .catch(next);
 };
