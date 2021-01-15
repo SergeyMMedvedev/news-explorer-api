@@ -4,7 +4,7 @@ const NotFoundError = require('../errors/not-found-error');
 const { requireAllFields, articleNotFound, articleCreated } = require('../utils/messeges');
 
 module.exports.getArticles = (req, res, next) => {
-  Article.find({})
+  Article.find({ owner: req.user._id })
     .then((articles) => {
       res.send(articles.reverse());
     })
